@@ -1,7 +1,7 @@
 // react
-import * as React from 'react';
+import * as React from "react";
 // next
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 // @mui
 import {
   AppBar,
@@ -18,46 +18,46 @@ import {
   ToolbarProps,
   styled,
   useTheme,
-} from '@mui/material';
+} from "@mui/material";
 // custom component
-import NameLogo from 'components/common/NameLogo';
-import ButtonLink from 'components/common/ButtonLink';
-import MenuToggler from 'components/common/MenuToggler';
-import ConstantsContext from 'context/constantsContext';
-import useOnClickOutside from 'hooks/useOnClickOutside';
-import ComponentsContext from 'context/componentsContext';
-import Projects from 'pages/projects';
+import NameLogo from "components/common/NameLogo";
+import ButtonLink from "components/common/ButtonLink";
+import MenuToggler from "components/common/MenuToggler";
+import ConstantsContext from "context/constantsContext";
+import useOnClickOutside from "hooks/useOnClickOutside";
+import ComponentsContext from "context/componentsContext";
+import Projects from "pages/projects";
 // type
 interface CustomAppBarProps {}
 
 const CustomAppBarRoot = styled(AppBar)<AppBarProps>(({ theme }) => ({
-  backgroundColor: 'transparent',
-  boxShadow: 'none',
+  backgroundColor: "transparent",
+  boxShadow: "none",
 }));
 
 const LinkContainer = styled(Box)<BoxProps>(({ theme }) => ({
-  marginLeft: theme.direction === 'ltr' ? 'auto' : 'none',
-  marginRight: theme.direction === 'rtl' ? 'auto' : 'none',
+  marginLeft: theme.direction === "ltr" ? "auto" : "none",
+  marginRight: theme.direction === "rtl" ? "auto" : "none",
 }));
 
 const LinksBox = styled(Box)<BoxProps>(({ theme }) => ({
-  '& > :not(a:first-of-type)': {
-    marginLeft: '0.5rem',
+  "& > :not(a:first-of-type)": {
+    marginLeft: "0.5rem",
   },
-  [theme.breakpoints.down('sm')]: {
-    display: 'none',
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
   },
 }));
 
 const CustomToolbar = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down("md")]: {
     padding: 0,
   },
 }));
 
 const CustomAppBar: React.FunctionComponent<CustomAppBarProps> = (props) => {
   const [dropdownState, setDropdownState] = React.useState(false);
-  const { containerMaxWidth = 'lg' } = React.useContext(ComponentsContext);
+  const { containerMaxWidth = "lg" } = React.useContext(ComponentsContext);
   const { navLinks } = React.useContext(ConstantsContext);
   navLinks?.sort((a, b) => (a.order > b.order ? 1 : -1));
 
@@ -88,12 +88,13 @@ const CustomAppBar: React.FunctionComponent<CustomAppBarProps> = (props) => {
               bgColor="white"
               color="#383838"
               name="Mustafa"
-              onClick={() => router.push('/')}
+              onClick={() => router.push("/")}
             />
-            <LinkContainer sx={{ marginLeft: 'auto' }}>
+            <LinkContainer sx={{ marginLeft: "auto" }}>
               <LinksBox>
                 {navLinks?.map((navLink, index) => (
                   <ButtonLink
+                    style={{ color: "black" }}
                     key={navLink.label + index + navLink.href}
                     href={navLink.href}
                     {...navLink.buttonProps}
@@ -106,7 +107,7 @@ const CustomAppBar: React.FunctionComponent<CustomAppBarProps> = (props) => {
                 color="info"
                 onClick={() => setDropdownState(!dropdownState)}
                 open={dropdownState}
-                sx={{ display: { sm: 'none' } }}
+                sx={{ display: { sm: "none" } }}
               />
             </LinkContainer>
           </CustomToolbar>
@@ -115,11 +116,12 @@ const CustomAppBar: React.FunctionComponent<CustomAppBarProps> = (props) => {
           sx={{
             backgroundColor: background.default,
             margin: 0,
-            transition: 'box-shadow 0.3s ease-in-out',
-            boxShadow: dropdownState ? '0px 6px 4px 0px rgba(0,0,0,0.12)' : '',
+
+            transition: "box-shadow 0.3s ease-in-out",
+            boxShadow: dropdownState ? "0px 6px 4px 0px rgba(0,0,0,0.12)" : "",
             WebkitBoxShadow: dropdownState
-              ? '0px 6px 4px 0px rgba(0,0,0,0.12)'
-              : '',
+              ? "0px 6px 4px 0px rgba(0,0,0,0.12)"
+              : "",
           }}
         >
           <Container maxWidth={containerMaxWidth}>
@@ -128,24 +130,24 @@ const CustomAppBar: React.FunctionComponent<CustomAppBarProps> = (props) => {
                 <Grow
                   in={dropdownState}
                   key={navLink.label + index}
-                  style={{ transformOrigin: 'center left' }}
+                  style={{ transformOrigin: "center left" }}
                   {...(dropdownState ? { timeout: index * 300 } : {})}
                   unmountOnExit
                 >
                   <ListItemButton
                     onClick={() => handleDropdownItemClick(navLink.href)}
                     sx={{
-                      borderRadius: '4px',
-                      '&: hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      borderRadius: "4px",
+                      "&: hover": {
+                        backgroundColor: "rgba(255, 255, 255, 0.2)",
                       },
                     }}
                   >
                     <ListItemIcon
                       sx={{
-                        color: 'inherit',
-                        fontSize: 'large',
-                        minWidth: '2rem',
+                        color: "inherit",
+                        fontSize: "large",
+                        minWidth: "2rem",
                       }}
                     >
                       {navLink.Icon}

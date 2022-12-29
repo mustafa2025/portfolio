@@ -1,15 +1,15 @@
 // react
-import * as React from 'react';
+import * as React from "react";
 // @mui
 import {
   Box,
   CircularProgress,
   CircularProgressProps,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
 // type
 interface SkillProgressProps extends CircularProgressProps {
-  Icon: React.ReactNode;
+  Icon: any;
   subtitle?: string;
 }
 
@@ -19,13 +19,13 @@ const SkillProgress: React.FunctionComponent<SkillProgressProps> = (props) => {
     <>
       <Box
         sx={{
-          position: 'relative',
-          display: 'inline-flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          position: "relative",
+          display: "inline-flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+        <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress
             aria-label="Circular progress bar"
             color="inherit"
@@ -38,17 +38,17 @@ const SkillProgress: React.FunctionComponent<SkillProgressProps> = (props) => {
               left: 0,
               bottom: 0,
               right: 0,
-              position: 'absolute',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              position: "absolute",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {Icon}
+            {typeof Icon === "string" ? <img src={Icon} alt={Icon} /> : Icon}
           </Box>
         </Box>
         {subtitle && (
-          <Typography variant="h6" component="div" sx={{ marginTop: '0.5rem' }}>
+          <Typography variant="h6" component="div" sx={{ marginTop: "0.5rem" }}>
             {subtitle}
           </Typography>
         )}

@@ -1,18 +1,17 @@
 // react
-import * as React from 'react';
+import * as React from "react";
 // @mui
-import { Grid, Grow, Typography } from '@mui/material';
+import { Grid, Grow, Typography } from "@mui/material";
 // custom component
-import BlogCard from 'components/common/BlogCard';
-import ContainerGrid from 'components/common/ContainerGrid';
-import MainLayout from 'components/layout/MainLayout';
+import BlogCard from "components/common/BlogCard";
+import ContainerGrid from "components/common/ContainerGrid";
+import MainLayout from "components/layout/MainLayout";
 // custom context
-import CenterBox from 'components/common/CenterBox';
-import ConstantsContext from 'context/constantsContext';
+import CenterBox from "components/common/CenterBox";
+import ConstantsContext from "context/constantsContext";
 // type
-import type { NextPage } from 'next';
-
-const Blog: NextPage = (props) => {
+import type { NextPage } from "next";
+const Blog: NextPage = () => {
   const { pages, blogPosts } = React.useContext(ConstantsContext);
 
   return (
@@ -35,7 +34,7 @@ const Blog: NextPage = (props) => {
         Be up to date in photography and design
       </Typography>
       {blogPosts ? (
-        <ContainerGrid sx={{ padding: { xs: '1rem', sm: '2rem' } }}>
+        <ContainerGrid sx={{ padding: { xs: "1rem", sm: "2rem" } }}>
           {blogPosts.map((post, index) => (
             <Grow
               in={true}
@@ -49,9 +48,9 @@ const Blog: NextPage = (props) => {
                   imageAlt={post.image.alt}
                   imageSrc={post.image.src}
                   sx={{
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    maxWidth: '21rem',
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    maxWidth: "21rem",
                   }}
                   title={post.title}
                 />

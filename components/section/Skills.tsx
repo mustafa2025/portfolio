@@ -1,5 +1,5 @@
 // react
-import * as React from 'react';
+import * as React from "react";
 // @mui
 import {
   Container,
@@ -8,30 +8,30 @@ import {
   GridProps,
   Typography,
   styled,
-} from '@mui/material';
+} from "@mui/material";
 // custom component
-import ContainerGrid from 'components/common/ContainerGrid';
-import SkillProgress from 'components/common/SkillProgress';
+import ContainerGrid from "components/common/ContainerGrid";
+import SkillProgress from "components/common/SkillProgress";
 // custom icons
-import IllustratorCCIcon from 'components/icon/IllustratorCC';
-import LightroomCCIcon from 'components/icon/LightroomCC';
-import PhotoshopIcon from 'components/icon/Photoshop';
+import IllustratorCCIcon from "components/icon/IllustratorCC";
+import LightroomCCIcon from "components/icon/LightroomCC";
+import PhotoshopIcon from "components/icon/Photoshop";
 // context
-import ComponentsContext from 'context/componentsContext';
+import ComponentsContext from "context/componentsContext";
 // type
 interface SkillsProps {}
 
 const CustomContainer = styled(Container)<ContainerProps>(({ theme }) => ({
-  marginBottom: '5rem',
-  marginTop: '5rem',
-  scrollMarginTop: '2rem',
+  marginBottom: "5rem",
+  marginTop: "5rem",
+  scrollMarginTop: "2rem",
 }));
 
 const CustomGridItem = styled(Grid)<GridProps>(({ theme }) => ({
-  alignItems: 'center',
-  display: 'flex',
-  justifyContent: 'center',
-  marginBottom: '2rem',
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "center",
+  marginBottom: "2rem",
 }));
 
 const Skills: React.FunctionComponent<SkillsProps> = (props) => {
@@ -42,26 +42,16 @@ const Skills: React.FunctionComponent<SkillsProps> = (props) => {
       Icon: (
         <PhotoshopIcon bgColor="white" textColor="tomato" fontSize="large" />
       ),
-      title: 'Photoshop',
-      progressValue: 78,
+      title: "NextJS",
     },
     {
-      Icon: (
-        <LightroomCCIcon bgColor="white" textColor="tomato" fontSize="large" />
-      ),
-      title: 'Lightroom',
-      progressValue: 83,
+      Icon: "bootstrap.png",
+      title: "Bootstrap",
     },
     {
-      Icon: (
-        <IllustratorCCIcon
-          bgColor="white"
-          textColor="tomato"
-          fontSize="large"
-        />
-      ),
-      title: 'Illustrator',
-      progressValue: 97,
+      Icon: "html.png",
+
+      title: "HTML",
     },
   ];
 
@@ -75,16 +65,16 @@ const Skills: React.FunctionComponent<SkillsProps> = (props) => {
           {skills.map((skill, index) => (
             <CustomGridItem
               item
-              key={`${skill.title} - ${skill.progressValue} - ${index}`}
+              key={`${skill.title} -  ${index}`}
               xs={12}
               sm={6}
               md={4}
             >
               <SkillProgress
                 size={100}
-                value={skill.progressValue}
+                // value={skill.progressValue}
                 Icon={skill.Icon}
-                subtitle={`${skill.title} | ${skill.progressValue}%`}
+                subtitle={`${skill.title}`}
               />
             </CustomGridItem>
           ))}

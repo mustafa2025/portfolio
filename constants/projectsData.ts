@@ -11,6 +11,7 @@ export interface ProjectDetails {
   images: ImageProps[];
   postFileName: string;
   title: string;
+  projectLink?:string| undefined;
 }
 
 export interface Project extends ProjectDetails {
@@ -18,7 +19,7 @@ export interface Project extends ProjectDetails {
 }
 
 const ProjectConstructor = (props: ProjectDetails): Project => {
-  const { category, date, id, images, postFileName, title } = props;
+  const { category, date, id, images, postFileName, title, projectLink } = props;
 
   return {
     category,
@@ -26,6 +27,7 @@ const ProjectConstructor = (props: ProjectDetails): Project => {
     id,
     title,
     images,
+  projectLink,
     postFileName,
     get likes() {
       let totalLikes = 0;
@@ -44,6 +46,7 @@ const projectsData: Project[] = [
     id: 'bridephotoshoot',
     postFileName: 'bridephotoshoot',
     title: 'Bride photoshoot',
+    projectLink: "https://mustafafinal.netlify.app", 
     images: [
       {
         alt: 'woman in white tank top wearing silver necklace',

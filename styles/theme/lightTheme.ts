@@ -9,16 +9,16 @@ const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#FF6347',
-      light: '#FF826B',
+      main: '#FF3523',
+      light: '#FF3523',
       dark: '#B24531',
-      contrastText: '#FFFFFF',
+      contrastText: '#FF3523',
     },
     secondary: {
       main: '#2196F3',
       light: '#4DABF5',
       dark: '#1769AA',
-      contrastText: '#FFFFFF',
+      contrastText: '#FF3523',
     },
     info: {
       main: '#FFFFFF',
@@ -27,11 +27,11 @@ const lightTheme = createTheme({
       contrastText: '#FF6347',
     },
     background: {
-      default: '#FF6347',
+      default: '#FFFFFF',
       paper: '#fff',
     },
     text: {
-      primary: '#ffffff',
+      primary: '#FF3523',
       secondary: '#383838',
       disabled: '#777777',
     },
