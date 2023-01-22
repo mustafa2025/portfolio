@@ -1,12 +1,12 @@
 // react
-import * as React from 'react';
+import * as React from "react";
 // @mui
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from "@mui/material";
 // dayjs
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 // type
-import { Project } from 'constants/projectsData';
-import CustomChip from 'components/common/CustomChip';
+import { Project } from "constants/projectsData";
+import CustomChip from "components/common/CustomChip";
 interface ProjectDetailsProps {
   project: Project;
   readTime?: number;
@@ -16,20 +16,26 @@ const ProjectDetails: React.FunctionComponent<ProjectDetailsProps> = (
   props
 ) => {
   const { project, readTime = 0, ...otherProps } = props;
-  const { title, category, date } = project;
+  const { title, category, date, url } = project;
 
   const shortDate = dayjs(date).toDate().toDateString();
 
   return (
     <Box>
-      <Typography component="h1" variant="h4" sx={{ marginBottom: '1rem' }}>
+      <Typography component="h1" variant="h4" sx={{ marginBottom: "1rem" }}>
         {title}
       </Typography>
-      <Typography component="p" variant="body1" sx={{ marginBottom: '0.5rem' }}>
+      <Typography component="p" variant="body1" sx={{ marginBottom: "0.5rem" }}>
         Read Time: {readTime} min
       </Typography>
-      <Typography component="p" variant="body1" sx={{ marginBottom: '0.5rem' }}>
+      <Typography component="p" variant="body1" sx={{ marginBottom: "0.5rem" }}>
         Published at {shortDate}
+      </Typography>
+      <Typography component="p" variant="body1" sx={{ marginBottom: "0.5rem" }}>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {" "}
+          View Project{" "}
+        </a>
       </Typography>
       <Box alignItems="center" display="flex">
         {category.map((category, index) => (

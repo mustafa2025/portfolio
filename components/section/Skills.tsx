@@ -14,9 +14,6 @@ import {
 import ContainerGrid from "components/common/ContainerGrid";
 import SkillProgress from "components/common/SkillProgress";
 // custom icons
-import IllustratorCCIcon from "components/icon/IllustratorCC";
-import LightroomCCIcon from "components/icon/LightroomCC";
-import PhotoshopIcon from "components/icon/Photoshop";
 // context
 import ComponentsContext from "context/componentsContext";
 // type

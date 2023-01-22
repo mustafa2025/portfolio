@@ -9,16 +9,18 @@ export interface ProjectDetails {
   date: Dayjs;
   id: string;
   images: ImageProps[];
-  postFileName: string;
   title: string;
+  url: string;
+
 }
 
 export interface Project extends ProjectDetails {
   likes: number;
+  url: string;
 }
 
 const ProjectConstructor = (props: ProjectDetails): Project => {
-  const { category, date, id, images, postFileName, title } = props;
+  const { category, date, id, images, title, url } = props;
 
   return {
     category,
@@ -26,7 +28,7 @@ const ProjectConstructor = (props: ProjectDetails): Project => {
     id,
     title,
     images,
-    postFileName,
+    url,
     get likes() {
       let totalLikes = 0;
       if (this.images.length === 0) return 0;
@@ -42,8 +44,8 @@ const projectsData: Project[] = [
     category: ['photography'],
     date: dayjs().subtract(1, 'week'),
     id: 'bridephotoshoot',
-    postFileName: 'bridephotoshoot',
-    title: 'Bride photoshoot',
+    title: 'Mustafa Baskbetball Camp',
+    url: 'https://mustafafinal.netlify.app',
     images: [
       {
         alt: 'woman in white tank top wearing silver necklace',
@@ -100,8 +102,8 @@ const projectsData: Project[] = [
     category: ['design'],
     date: dayjs().subtract(4, 'week'),
     id: 'hairmaskdesign',
-    postFileName: 'bridephotoshoot',
     title: 'Hair mask box design',
+    url: 'https://mustafafinal.netlify.app',
     images: [
       {
         alt: 'White and green labeled soft hair mask tube',
@@ -123,8 +125,9 @@ const projectsData: Project[] = [
     category: ['photography'],
     date: dayjs().subtract(19, 'week'),
     id: 'clothingphotoshoot',
-    postFileName: 'bridephotoshoot',
-    title: 'Clothing photoshot',
+    title: 'Mustafa Basketball Camp',
+        url: 'https://mustafafinal.netlify.app',
+
     images: [
       {
         alt: 'woman in pink and white polka dot crop top and blue denim shorts',
@@ -167,8 +170,9 @@ const projectsData: Project[] = [
     category: ['photography'],
     date: dayjs().subtract(24, 'week'),
     id: 'modelingphotoshoot',
-    postFileName: 'bridephotoshoot',
     title: 'Modeling photoshoot',
+        url: 'https://mustafafinal.netlify.app',
+
     images: [
       {
         alt: 'woman in gray dress sitting on stairs',
@@ -205,7 +209,8 @@ const projectsData: Project[] = [
     date: dayjs().subtract(8, 'month'),
     id: 'designingwaterbox',
     title: 'Box water is better',
-    postFileName: 'bridephotoshoot',
+        url: 'https://mustafafinal.netlify.app',
+
     images: [
       {
         alt: 'Boxed water is Better carton with waves drawn on it with a sharpie',
