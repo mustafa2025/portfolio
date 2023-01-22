@@ -87,14 +87,13 @@ const Skills: React.FunctionComponent<SkillsProps> = (props) => {
           {skills.map((skill, index) => (
             <CustomGridItem
               item
-              key={`${skill.title} - ${skill.progressValue} - ${index}`}
+              key={`${skill.title} - ${index}`}
               xs={12}
               sm={6}
               md={4}
             >
               <SkillProgress
                 size={100}
-                value={skill.progressValue}
                 Icon={skill.Icon}
                 subtitle={`${skill.title}  
                  `}
