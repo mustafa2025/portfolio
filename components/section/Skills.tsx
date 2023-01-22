@@ -1,5 +1,6 @@
 // react
-import * as React from 'react';
+import * as React from "react";
+import Image from "next/image";
 // @mui
 import {
   Container,
@@ -8,30 +9,30 @@ import {
   GridProps,
   Typography,
   styled,
-} from '@mui/material';
+} from "@mui/material";
 // custom component
-import ContainerGrid from 'components/common/ContainerGrid';
-import SkillProgress from 'components/common/SkillProgress';
+import ContainerGrid from "components/common/ContainerGrid";
+import SkillProgress from "components/common/SkillProgress";
 // custom icons
-import IllustratorCCIcon from 'components/icon/IllustratorCC';
-import LightroomCCIcon from 'components/icon/LightroomCC';
-import PhotoshopIcon from 'components/icon/Photoshop';
+import IllustratorCCIcon from "components/icon/IllustratorCC";
+import LightroomCCIcon from "components/icon/LightroomCC";
+import PhotoshopIcon from "components/icon/Photoshop";
 // context
-import ComponentsContext from 'context/componentsContext';
+import ComponentsContext from "context/componentsContext";
 // type
 interface SkillsProps {}
 
 const CustomContainer = styled(Container)<ContainerProps>(({ theme }) => ({
-  marginBottom: '5rem',
-  marginTop: '5rem',
-  scrollMarginTop: '2rem',
+  marginBottom: "5rem",
+  marginTop: "5rem",
+  scrollMarginTop: "2rem",
 }));
 
 const CustomGridItem = styled(Grid)<GridProps>(({ theme }) => ({
-  alignItems: 'center',
-  display: 'flex',
-  justifyContent: 'center',
-  marginBottom: '2rem',
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "center",
+  marginBottom: "2rem",
 }));
 
 const Skills: React.FunctionComponent<SkillsProps> = (props) => {
@@ -40,28 +41,42 @@ const Skills: React.FunctionComponent<SkillsProps> = (props) => {
   const skills = [
     {
       Icon: (
-        <PhotoshopIcon bgColor="white" textColor="tomato" fontSize="large" />
-      ),
-      title: 'Photoshop',
-      progressValue: 78,
-    },
-    {
-      Icon: (
-        <LightroomCCIcon bgColor="white" textColor="tomato" fontSize="large" />
-      ),
-      title: 'Lightroom',
-      progressValue: 83,
-    },
-    {
-      Icon: (
-        <IllustratorCCIcon
-          bgColor="white"
-          textColor="tomato"
-          fontSize="large"
+        <Image
+          alt="Mustafa profile image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center center"
+          // onLoad={() => setIsLoaded(true)}
+          src="/javascript.png"
         />
       ),
-      title: 'Illustrator',
-      progressValue: 97,
+      title: "JavaScript",
+    },
+    {
+      Icon: (
+        <Image
+          alt="Mustafa profile image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center center"
+          // onLoad={() => setIsLoaded(true)}
+          src="/react.png"
+        />
+      ),
+      title: "React",
+    },
+    {
+      Icon: (
+        <Image
+          alt="Mustafa profile image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center center"
+          // onLoad={() => setIsLoaded(true)}
+          src="/node.png"
+        />
+      ),
+      title: "NodeJS",
     },
   ];
 
@@ -84,7 +99,8 @@ const Skills: React.FunctionComponent<SkillsProps> = (props) => {
                 size={100}
                 value={skill.progressValue}
                 Icon={skill.Icon}
-                subtitle={`${skill.title} | ${skill.progressValue}%`}
+                subtitle={`${skill.title}  
+                 `}
               />
             </CustomGridItem>
           ))}
